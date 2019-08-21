@@ -13,8 +13,6 @@ if [ -f "./.pre-commit-config.yaml" ] && [ "$(uname -s)" = "Darwin" ]; then
   fi
 fi
 
-echo
-
 if ls ./*.tf 1> /dev/null 2>&1; then
   if ! brew list -1 | grep -q '^terraform$'; then
     echo "==> Installing Terraform with Homebrew..."

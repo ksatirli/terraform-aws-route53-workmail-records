@@ -26,7 +26,7 @@ repos:
         id: markdownlint
         args: ["--config=.mdlrc"]
   -
-    repo: git://github.com/antonbabenko/pre-commit-terraform
+    repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.19.0
     hooks:
       - id: terraform_fmt
