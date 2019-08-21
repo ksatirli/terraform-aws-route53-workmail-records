@@ -7,6 +7,10 @@ repos:
       - id: check-added-large-files
       - id: check-case-conflict
       - id: check-merge-conflict
+      - id: check-json
+      - id: check-yaml
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
       - id: check-vcs-permalinks
   -
     repo: https://github.com/jumanjihouse/pre-commit-hooks
