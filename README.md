@@ -27,11 +27,9 @@ This module depends on a correctly configured [AWS Provider](https://www.terrafo
 Add the module to your Terraform resources like so:
 
 ```hcl
-module "workmail-dns-records-example-com" {
-  source = "../terraform-module-aws-route53-workmail-records"
-  //source           = "github.com/operatehappy/terraform-module-github-aws-route53-workmail-records?ref=0.9.0"
-  //version          = "0.9.0"
-  zone_id          = "ZSEXFGJ99OGTP"
+module "workmail-records" {
+  source           = "github.com/operatehappy/terraform-module-github-aws-route53-workmail-records?ref=0.9.0"
+  zone_id          = "Z3P5QSUBK4POTI"
   workmail_zone    = "us-west-1"
   ownership_record = "6S1lp9ffrgKqvqgv66W9XfrlprlLlquSU6gSVvrsx6Y="
   dkim_record_1    = "S9q64lvmxmg6qk66yqkweksSgpkrppwr"
@@ -40,7 +38,7 @@ module "workmail-dns-records-example-com" {
 }
 ```
 
-Then, load the module using `terraform get`.
+Then, fetch the module using `terraform get`.
 
 ### Module Variables
 
@@ -71,13 +69,19 @@ Additionally, the following variables are generated as [locals](https://www.terr
 
 Available outputs are listed below, along with their description
 
-| output            | description                                                                                                         |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|
-| `full_name`       | A string of the form `orgname/reponame`.                                                                            |
-| `ssh_clone_url`   | URL that can be provided to `git clone` to clone the repository via SSH.                                            |
-| `http_clone_url`  | URL that can be provided to `git clone` to clone the repository via HTTPS.                                          |
-| `git_clone_url`   | URL that can be provided to git clone to clone the repository anonymously via the git protocol.                     |
-| `svn_url`         | URL that can be provided to `svn checkout` to check out the repository via GitHub's Subversion protocol emulation.  |
+| output                | description                                                  |
+|-----------------------|--------------------------------------------------------------|
+| `ownership`           | interpolated value of `aws_route53_record.ownership.name`    |
+| `mx`                  | interpolated value of `aws_route53_record.mx.name`           |
+| `autodiscover`        | interpolated value of `aws_route53_record.autodiscover.name` |
+| `dkim`                | interpolated value of `aws_route53_record.dkim-1.name`       |
+| `dkim`                | interpolated value of `aws_route53_record.dkim-2.name`       |
+| `dkim`                | interpolated value of `aws_route53_record.dkim-3.name`       |
+| `spf`                 | interpolated value of `aws_route53_record.spf.name`          |
+| `dmarc`               | interpolated value of `aws_route53_record.dmarc.name`        |
+| `mx_record`           | interpolated value of `local.mx_record`                      |
+| `autodiscover_record` | interpolated value of `local.autodiscover_record`            |
+| `zone_name`           | interpolated value of `local.zone_name`                      |
 
 ## Author Information
 
