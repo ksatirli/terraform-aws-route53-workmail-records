@@ -16,7 +16,7 @@
 
 ## Requirements
 
-This module requires Terraform version `0.12.x` or newer.
+This module requires Terraform version `0.12.0` or newer.
 
 ## Dependencies
 
@@ -63,7 +63,7 @@ Additionally, the following variables are generated as [locals](https://www.terr
 |---------------------|-----------------------------------------------------------------------|
 | mx_record           | `${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com.` |
 | autodiscover_record | `autodiscover.mail.${var.workmail_zone}.awsapps.com.`                 |
-| zone_name           | `${data.aws_route53_zone.name}.`                                      |
+| zone_name           | `${data.aws_route53_zone.name}`                                       |
 
 ### Module Outputs
 
