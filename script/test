@@ -8,11 +8,3 @@ if [ -f ".pre-commit-config.yaml" ]; then
   echo "==> Running pre-commit checks..."
   pre-commit run
 fi
-
-echo
-
-if ls ./*.tf 1> /dev/null 2>&1; then
-  echo "==> Running Terraform-specific tests..."
-  terraform fmt -diff -check -recursive
-fi
-
