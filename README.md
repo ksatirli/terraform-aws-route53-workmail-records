@@ -28,7 +28,8 @@ Add the module to your Terraform resources like so:
 
 ```hcl
 module "workmail-records" {
-  source           = "github.com/operatehappy/terraform-module-github-aws-route53-workmail-records?ref=0.9.0"
+  source           = "operatehappy/aws-route53-workmail-records/module"
+  version          = "0.9.1"
   zone_id          = "Z3P5QSUBK4POTI"
   workmail_zone    = "us-west-1"
   ownership_record = "6S1lp9ffrgKqvqgv66W9XfrlprlLlquSU6gSVvrsx6Y="
@@ -38,7 +39,7 @@ module "workmail-records" {
 }
 ```
 
-Then, fetch the module using `terraform get`.
+Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/workmail-records/aws/0.9.0) using `terraform get`.
 
 ### Module Variables
 
