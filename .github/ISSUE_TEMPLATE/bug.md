@@ -26,4 +26,10 @@ about: A bug or problem with this Module
 
 ```
 
-2.) Version of the
+2.) Version of the module: ``
+
+3.) Any other relevant environment information:
+
+```sh
+
+```
