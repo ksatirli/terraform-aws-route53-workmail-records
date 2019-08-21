@@ -1,31 +1,32 @@
 {
-	"non-interactive": false,
 	"dry-run": true,
+	"increment": "minor",
+	"non-interactive": false,
 	"verbose": true,
-	"increment": "patch",
-	"buildCommand": "terraform fmt",
+	"buildCommand": "script/test",
 	"changelogCommand": "git log --pretty=format:'* %s (%h)' [REV_RANGE]",
-	"requireCleanWorkingDir": true,
-	"src": {
+	"git": {
+		"requireCleanWorkingDir": true,
+		"requireUpstream": true,
+		"requireCommits": true,
+		"addUntrackedFiles": false,
 		"commitMessage": "Release %s",
-		"tagName": "%s",
-		"tagAnnotation": "Release %s",
-		"beforeStartCommand": false,
-		"beforeStageCommand": false,
-		"afterReleaseCommand": false,
-		"githubAssets": false
-	},
-	"dist": {
-		"repo": false,
-		"pkgFiles": ["package.json"]
-	},
-	"npm": {
-		"publish": false
+		"tag": true,
+		"tagName": "${version}",
+		"tagAnnotation": "Release ${version}",
+		"push": true,
+    "pushArgs": "--follow-tags",
+    "pushRepo": "origin"
 	},
 	"github": {
-		"release": true,
-		"releaseName": "Release %s",
+		"release": false,
+		"releaseName": "Release ${version}",
 		"preRelease": false,
-		"tokenRef": "GITHUB_TOKEN_OPERATEHAPPY_BOT"
+		"draft": true,
+		"tokenRef": "GITHUB_TOKEN_OPERATEHAPPY_BOT",
+		"assets": null,
+    "host": null,
+    "timeout": 0,
+    "proxy": null
 	}
 }
