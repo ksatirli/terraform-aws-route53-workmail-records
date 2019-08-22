@@ -39,7 +39,7 @@ module "workmail-records" {
 }
 ```
 
-Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/workmail-records/aws/0.9.0) using `terraform get`.
+Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/route53-workmail-records) using `terraform get`.
 
 ### Module Variables
 
