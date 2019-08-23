@@ -1,6 +1,7 @@
 ---
 name: Bug
 about: A bug or problem with this Module
+labels: bug
 ---
 
 <!-- Please provide a general summary of the issue in the Title above -->
