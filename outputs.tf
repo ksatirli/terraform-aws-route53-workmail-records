@@ -28,9 +28,9 @@ output "dkim-3" {
   description = "interpolated value of `aws_route53_record.dkim-3.name`"
 }
 
-output "spf" {
-  value       = aws_route53_record.spf.name
-  description = "interpolated value of `aws_route53_record.spf.name`"
+output "zone_apex_txt_record" {
+  value       = aws_route53_record.zone-apex-txt.name
+  description = "interpolated value of `aws_route53_record.zone-apex-txt.name`"
 }
 
 output "dmarc" {

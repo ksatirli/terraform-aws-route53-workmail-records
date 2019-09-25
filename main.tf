@@ -49,12 +49,12 @@ resource "aws_route53_record" "dkim-3" {
   records = ["${var.dkim_record_3}._domainkey.${local.zone_name}"]
 }
 
-resource "aws_route53_record" "spf" {
+resource "aws_route53_record" "zone-apex-txt" {
   zone_id = var.zone_id
   name    = local.zone_name
   type    = "TXT"
   ttl     = var.record_ttl
-  records = [var.spf_record]
+  records = [local.zone_apex_txt_record]
 }
 
 resource "aws_route53_record" "dmarc" {
