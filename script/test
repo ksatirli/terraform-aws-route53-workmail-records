@@ -2,11 +2,9 @@
 
 # script/test: Run test suite for application.
 
-PRECOMMIT_CONFIG="../dotfiles-org/.pre-commit-config.yaml"
-
 cd "$(dirname "$0")/.." || exit
 
-if [ -f "${PRECOMMIT_CONFIG}" ]; then
+if [ -f ".pre-commit-config.yaml" ]; then
   echo "==> Running pre-commit checks..."
-  pre-commit run --config="${PRECOMMIT_CONFIG}" --files ./*.*
+  pre-commit run --files ./*.*
 fi
