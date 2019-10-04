@@ -9,7 +9,8 @@ repos:
       - id: check-merge-conflict
       - id: check-json
       - id: check-yaml
-      - id: detect-aws-credentials
+      -
+        id: detect-aws-credentials
         args: ["--allow-missing-credentials"]
       - id: check-vcs-permalinks
   -
