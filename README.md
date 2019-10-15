@@ -39,24 +39,25 @@ module "workmail-records" {
 }
 ```
 
-Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/workmail-records/aws/0.9.0) using `terraform get`.
+Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/route53-workmail-records) using `terraform get`.
 
 ### Module Variables
 
 Available variables are listed below, along with their default values:
 
-| variable         | type   | description                                         | default                              |
-|------------------|--------|-----------------------------------------------------|--------------------------------------|
-| zone_id          | string | ID of the DNS Zone to store Records in              |                                      |
-| record_ttl       | string | TTL for all DNS records                             | `300`                                |
-| workmail_zone    | string | AWS Zone of the WorkMail Organization               | `us-east-1` |                        |
-| mx_priority      | string | MX Priority                                         | `10`                                 |
-| ownership_record | string | Ownership TXT Record                                |                                      |
-| dkim_record_1    | string | DKIM CNAME Record 1                                 |                                      |
-| dkim_record_2    | string | DKIM CNAME Record 2                                 |                                      |
-| dkim_record_3    | string | DKIM CNAME Record 3                                 |                                      |
-| spf_record       | string | SPF TXT Record                                      | `v=spf1 include:amazonses.com ~all`  |
-| dmarc_record     | string | DMARC TXT Record                                    | `v=DMARC1;p=quarantine;pct=100;fo=1` |
+| variable         | type   | description                                         | default                               |
+|------------------|--------|-----------------------------------------------------|---------------------------------------|
+| zone_id          | string | ID of the DNS Zone to store Records in              |                                       |
+| record_ttl       | string | TTL for all DNS records                             | `300`                                 |
+| workmail_zone    | string | AWS Zone of the WorkMail Organization               | `us-east-1` |                         |
+| mx_priority      | string | MX Priority                                         | `10`                                  |
+| ownership_record | string | Ownership TXT Record                                |                                       |
+| dkim_record_1    | string | DKIM CNAME Record 1                                 |                                       |
+| dkim_record_2    | string | DKIM CNAME Record 2                                 |                                       |
+| dkim_record_3    | string | DKIM CNAME Record 3                                 |                                       |
+| spf_record       | string | SPF TXT Record                                      | `v=spf1 include:amazonses.com ~all;`  |
+| apex_txt_apped   | string | additional Zone Apex TXT Record data                |                                       |
+| dmarc_record     | string | DMARC TXT Record                                    | `v=DMARC1;p=quarantine;pct=100;fo=1;` |
 
 Additionally, the following variables are generated as [locals](https://www.terraform.io/docs/configuration/locals.html):
 
@@ -64,6 +65,7 @@ Additionally, the following variables are generated as [locals](https://www.terr
 |---------------------|-----------------------------------------------------------------------|
 | mx_record           | `${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com.` |
 | autodiscover_record | `autodiscover.mail.${var.workmail_zone}.awsapps.com.`                 |
+| apex_txt_record     | `${var.spf_record} ${var.apex_txt_record_append}`                     |
 | zone_name           | `${data.aws_route53_zone.name}`                                       |
 
 ### Module Outputs
@@ -86,9 +88,7 @@ Available outputs are listed below, along with their description
 
 ## Author Information
 
-This module is currently maintained by the individuals listed below.
-
-- [Kerim Satirli](https://github.com/ksatirli)
+This module is maintained by the contributors listed on [GitHub](https://github.com/operatehappy/terraform-aws-route53-workmail-records/graphs/contributors)
 
 Development of this module was sponsored by [Operate Happy](https://github.com/operatehappy).
 

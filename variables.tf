@@ -44,22 +44,21 @@ variable "dkim_record_3" {
 variable "spf_record" {
   type        = string
   description = "SPF TXT Record"
-  default     = "v=spf1 include:amazonses.com ~all"
+  default     = "v=spf1 include:amazonses.com ~all;"
+}
+
+variable "apex_txt_record_append" {
+  type        = string
+  description = "additional Domain Apex TXT Record data"
+  default     = ""
 }
 
 variable "dmarc_record" {
   type        = string
   description = "DMARC TXT Record"
-  default     = "v=DMARC1;p=quarantine;pct=100;fo=1"
+  default     = "v=DMARC1;p=quarantine;pct=100;fo=1;"
 }
 
 data "aws_route53_zone" "zone" {
   zone_id = var.zone_id
 }
-
-locals {
-  mx_record           = "${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com."
-  autodiscover_record = "autodiscover.mail.${var.workmail_zone}.awsapps.com."
-  zone_name           = "${data.aws_route53_zone.zone.name}" // NOTE: trailing period is added by data source
-}
-

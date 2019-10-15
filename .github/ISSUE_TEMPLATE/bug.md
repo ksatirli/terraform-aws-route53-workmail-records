@@ -1,6 +1,7 @@
 ---
 name: Bug
 about: A bug or problem with this Module
+labels: bug
 ---
 
 <!-- Please provide a general summary of the issue in the Title above -->
@@ -20,7 +21,7 @@ about: A bug or problem with this Module
 
 ## Environment
 
-1.) Output of `terraform version` incl. provide(s):
+1.) Output of `terraform version` incl. provider(s):
 
 ```sh
 
