@@ -6,7 +6,7 @@ variable "zone_id" {
 variable "record_ttl" {
   type        = string
   description = "TTL for all DNS records"
-  default     = 86400
+  default     = 300
 }
 
 variable "workmail_zone" {
@@ -19,6 +19,26 @@ variable "mx_priority" {
   type        = string
   description = "MX Priority"
   default     = 10
+}
+
+variable "ownership_record" {
+  type        = string
+  description = "Ownership TXT Record"
+}
+
+variable "dkim_record_1" {
+  type        = string
+  description = "DKIM CNAME Record 1"
+}
+
+variable "dkim_record_2" {
+  type        = string
+  description = "DKIM CNAME Record 2"
+}
+
+variable "dkim_record_3" {
+  type        = string
+  description = "DKIM CNAME Record 3"
 }
 
 variable "spf_record" {
