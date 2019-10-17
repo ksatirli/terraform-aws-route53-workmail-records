@@ -94,9 +94,7 @@ Development of this module was sponsored by [Operate Happy](https://github.com/o
 
 ## License
 
-Copyright 2019 [Kerim Satirli](https://github.com/ksatirli)
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+Licensed under the Apache License, Version 2.0 (the "License").
 
 You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
