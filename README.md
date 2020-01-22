@@ -64,19 +64,17 @@ Additionally, the following variables are generated as [locals](https://www.terr
 
 Available outputs are listed below, along with their description
 
-| output                | description                                                  |
-|-----------------------|--------------------------------------------------------------|
-| `ownership`           | interpolated value of `aws_route53_record.ownership.name`    |
-| `mx`                  | interpolated value of `aws_route53_record.mx.name`           |
-| `autodiscover`        | interpolated value of `aws_route53_record.autodiscover.name` |
-| `dkim`                | interpolated value of `aws_route53_record.dkim-1.name`       |
-| `dkim`                | interpolated value of `aws_route53_record.dkim-2.name`       |
-| `dkim`                | interpolated value of `aws_route53_record.dkim-3.name`       |
-| `spf`                 | interpolated value of `aws_route53_record.spf.name`          |
-| `dmarc`               | interpolated value of `aws_route53_record.dmarc.name`        |
-| `mx_record`           | interpolated value of `local.mx_record`                      |
-| `autodiscover_record` | interpolated value of `local.autodiscover_record`            |
-| `zone_name`           | interpolated value of `local.zone_name`                      |
+| output                 | description                                                   |
+|------------------------|---------------------------------------------------------------|
+| `ownership`            | interpolated value of `aws_route53_record.ownership.name`     |
+| `mx`                   | interpolated value of `aws_route53_record.mx.name`            |
+| `autodiscover`         | interpolated value of `aws_route53_record.autodiscover.name`  |
+| `dkim`                 | interpolated value of `aws_ses_domain_dkim.dkim.dkim_tokens`  |
+| `zone_apex_txt_record` | interpolated value of `aws_route53_record.zone-apex-txt.name` |
+| `dmarc`                | interpolated value of `aws_route53_record.dmarc.name`         |
+| `mx_record`            | interpolated value of `local.mx_record`                       |
+| `autodiscover_record`  | interpolated value of `local.autodiscover_record`             |
+| `zone_name`            | interpolated value of `local.zone_name`                       |
 
 ## Author Information
 
