@@ -29,13 +29,9 @@ Add the module to your Terraform resources like so:
 ```hcl
 module "workmail-records" {
   source           = "operatehappy/route53-workmail-records/aws"
-  version          = "0.9.1"
+  version          = "0.10.0"
   zone_id          = "Z3P5QSUBK4POTI"
   workmail_zone    = "us-west-1"
-  ownership_record = "6S1lp9ffrgKqvqgv66W9XfrlprlLlquSU6gSVvrsx6Y="
-  dkim_record_1    = "S9q64lvmxmg6qk66yqkweksSgpkrppwr"
-  dkim_record_2    = "fSlyfoqsygmgSSrowS6ypsegd9qlrl3f"
-  dkim_record_3    = "rslvrS696frfml6frufrSkfgSSfe3udu"
 }
 ```
 
