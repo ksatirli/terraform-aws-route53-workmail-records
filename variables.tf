@@ -6,7 +6,7 @@ variable "zone_id" {
 variable "record_ttl" {
   type        = string
   description = "TTL for all DNS records"
-  default     = 300
+  default     = 86400
 }
 
 variable "workmail_zone" {
