@@ -41,28 +41,24 @@ Then, fetch the module from the [Terraform Registry](https://registry.terraform.
 
 Available variables are listed below, along with their default values:
 
-| variable         | type   | description                                         | default                               |
-|------------------|--------|-----------------------------------------------------|---------------------------------------|
-| zone_id          | string | ID of the DNS Zone to store Records in              |                                       |
-| record_ttl       | string | TTL for all DNS records                             | `300`                                 |
-| workmail_zone    | string | AWS Zone of the WorkMail Organization               | `us-east-1` |                         |
-| mx_priority      | string | MX Priority                                         | `10`                                  |
-| ownership_record | string | Ownership TXT Record                                |                                       |
-| dkim_record_1    | string | DKIM CNAME Record 1                                 |                                       |
-| dkim_record_2    | string | DKIM CNAME Record 2                                 |                                       |
-| dkim_record_3    | string | DKIM CNAME Record 3                                 |                                       |
-| spf_record       | string | SPF TXT Record                                      | `v=spf1 include:amazonses.com ~all;`  |
-| apex_txt_apped   | string | additional Zone Apex TXT Record data                |                                       |
-| dmarc_record     | string | DMARC TXT Record                                    | `v=DMARC1;p=quarantine;pct=100;fo=1;` |
+| variable               | type   | description                            | default                               |
+|------------------------|--------|----------------------------------------|---------------------------------------|
+| zone_id                | string | ID of the DNS Zone to store Records in |                                       |
+| record_ttl             | string | TTL for all DNS records                | `86400`                               |
+| workmail_zone          | string | AWS Zone of the WorkMail Organization  | `us-east-1`                           |
+| mx_priority            | string | MX Priority                            | `10`                                  |
+| spf_record             | string | SPF TXT Record                         | `v=spf1 include:amazonses.com ~all;`  |
+| apex_txt_record_append | string | additional Zone Apex TXT Record data   |                                       |
+| dmarc_record           | string | DMARC TXT Record                       | `v=DMARC1;p=quarantine;pct=100;fo=1;` |
 
 Additionally, the following variables are generated as [locals](https://www.terraform.io/docs/configuration/locals.html):
 
-| key                 | value                                                                 |
-|---------------------|-----------------------------------------------------------------------|
-| mx_record           | `${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com.` |
-| autodiscover_record | `autodiscover.mail.${var.workmail_zone}.awsapps.com.`                 |
-| apex_txt_record     | `${var.spf_record} ${var.apex_txt_record_append}`                     |
-| zone_name           | `${data.aws_route53_zone.name}`                                       |
+| key                  | value                                                                 |
+|----------------------|-----------------------------------------------------------------------|
+| mx_record            | `${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com.` |
+| autodiscover_record  | `autodiscover.mail.${var.workmail_zone}.awsapps.com.`                 |
+| zone_apex_txt_record | `${var.spf_record} ${var.apex_txt_record_append}`                     |
+| zone_name            | `${data.aws_route53_zone.name}`                                       |
 
 ### Module Outputs
 
