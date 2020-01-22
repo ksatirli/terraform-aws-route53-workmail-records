@@ -1,12 +1,3 @@
-// verify Domain ownership
-resource "aws_route53_record" "ownership" {
-  zone_id = var.zone_id
-  name    = "_amazonses.${local.zone_name}"
-  type    = "TXT"
-  ttl     = var.record_ttl
-  records = [var.ownership_record]
-}
-
 resource "aws_route53_record" "mx" {
   zone_id = var.zone_id
   name    = local.zone_name
@@ -24,29 +15,31 @@ resource "aws_route53_record" "autodiscover" {
   records = [local.autodiscover_record]
 }
 
-// DKIM, SPF, and DMARC records
-resource "aws_route53_record" "dkim-1" {
-  zone_id = var.zone_id
-  name    = "${var.dkim_record_1}.${local.zone_name}"
-  type    = "CNAME"
-  ttl     = var.record_ttl
-  records = ["${var.dkim_record_1}._domainkey.${local.zone_name}"]
+// SES identity / verification
+resource "aws_ses_domain_identity" "identity" {
+  domain = local.zone_name
 }
 
-resource "aws_route53_record" "dkim-2" {
+resource "aws_route53_record" "verification-token" {
   zone_id = var.zone_id
-  name    = "${var.dkim_record_2}.${local.zone_name}"
-  type    = "CNAME"
-  ttl     = var.record_ttl
-  records = ["${var.dkim_record_2}._domainkey.${local.zone_name}"]
+  name    = "_amazonses.${local.zone_name}"
+  type    = "TXT"
+  ttl     = "600"
+  records = ["${aws_ses_domain_identity.identity.verification_token}"]
 }
 
-resource "aws_route53_record" "dkim-3" {
+// DKIM
+resource "aws_ses_domain_dkim" "dkim" {
+  domain = aws_ses_domain_identity.identity.domain
+}
+
+resource "aws_route53_record" "dkim" {
+  count   = 3
   zone_id = var.zone_id
-  name    = "${var.dkim_record_3}.${local.zone_name}"
+  name    = "${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}._domainkey.${local.zone_name}"
   type    = "CNAME"
-  ttl     = var.record_ttl
-  records = ["${var.dkim_record_3}._domainkey.${local.zone_name}"]
+  ttl     = "600"
+  records = ["${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}.dkim.amazonses.com."]
 }
 
 resource "aws_route53_record" "zone-apex-txt" {
@@ -57,6 +50,7 @@ resource "aws_route53_record" "zone-apex-txt" {
   records = [local.zone_apex_txt_record]
 }
 
+// DMARC record
 resource "aws_route53_record" "dmarc" {
   zone_id = var.zone_id
   name    = "_dmarc.${local.zone_name}"
