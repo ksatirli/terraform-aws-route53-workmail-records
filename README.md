@@ -60,6 +60,7 @@ Additionally, the following variables are generated as [locals](https://www.terr
 | zone_apex_txt_record | `${var.spf_record} ${var.apex_txt_record_append}`                     |
 | zone_name            | `${data.aws_route53_zone.name}`                                       |
 
+
 ### Module Outputs
 
 Available outputs are listed below, along with their description
