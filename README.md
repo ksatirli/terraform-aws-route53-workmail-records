@@ -1,6 +1,6 @@
 # Terraform Module: AWS WorkMail DNS Records
 
-> This repository is a [Terraform](https://terraform.io/) Module for managing AWS Route 53 [DNS Records](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) for AWS WorkMail Organizations.
+> Terraform Module for managing AWS Route 53 [DNS Records](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) for AWS WorkMail Organizations.
 
 ## Table of Contents
 
