@@ -1,6 +1,6 @@
 # Terraform Module: AWS WorkMail DNS Records
 
-> This repository is a [Terraform](https://terraform.io/) Module for managing AWS Route 53 [DNS Records](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) for AWS WorkMail Organizations.
+> Terraform Module for managing AWS Route 53 [DNS Records](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) for AWS WorkMail Organizations.
 
 ## Table of Contents
 
@@ -9,8 +9,8 @@
   - [Requirements](#requirements)
   - [Dependencies](#dependencies)
   - [Usage](#usage)
-    - [Module Variables](#module-variables)
-    - [Module Outputs](#module-outputs)
+    - [Inputs](#inputs)
+    - [Outputs](#outputs)
   - [Author Information](#author-information)
   - [License](#license)
 
@@ -37,43 +37,30 @@ module "workmail-records" {
 
 Then, fetch the module from the [Terraform Registry](https://registry.terraform.io/modules/operatehappy/route53-workmail-records) using `terraform get`.
 
-### Module Variables
+### Inputs
 
-Available variables are listed below, along with their default values:
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| zone_id | ID of the DNS Zone to store Records in | `string` | n/a |
+| apex_txt_record_append | additional Domain Apex TXT Record data | `string` | `""` |
+| dmarc_record | DMARC TXT Record | `string` | `"v=DMARC1;p=quarantine;pct=100;fo=1;"` |
+| mx_priority | MX Priority | `string` | `10` |
+| record_ttl | TTL for all DNS records | `string` | `86400` |
+| spf_record | SPF TXT Record | `string` | `"v=spf1 include:amazonses.com ~all;"` |
+| workmail_zone | AWS Zone of the WorkMail Organization | `string` | `"us-east-1"` |
 
-| variable               | type   | description                            | default                               |
-|------------------------|--------|----------------------------------------|---------------------------------------|
-| zone_id                | string | ID of the DNS Zone to store Records in |                                       |
-| record_ttl             | string | TTL for all DNS records                | `86400`                               |
-| workmail_zone          | string | AWS Zone of the WorkMail Organization  | `us-east-1`                           |
-| mx_priority            | string | MX Priority                            | `10`                                  |
-| spf_record             | string | SPF TXT Record                         | `v=spf1 include:amazonses.com ~all;`  |
-| apex_txt_record_append | string | additional Zone Apex TXT Record data   |                                       |
-| dmarc_record           | string | DMARC TXT Record                       | `v=DMARC1;p=quarantine;pct=100;fo=1;` |
+### Outputs
 
-Additionally, the following variables are generated as [locals](https://www.terraform.io/docs/configuration/locals.html):
-
-| key                  | value                                                                 |
-|----------------------|-----------------------------------------------------------------------|
-| mx_record            | `${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com.` |
-| autodiscover_record  | `autodiscover.mail.${var.workmail_zone}.awsapps.com.`                 |
-| zone_apex_txt_record | `${var.spf_record} ${var.apex_txt_record_append}`                     |
-| zone_name            | `${data.aws_route53_zone.name}`                                       |
-
-### Module Outputs
-
-Available outputs are listed below, along with their description
-
-| output                 | description                                                   |
-|------------------------|---------------------------------------------------------------|
-| `mx`                   | interpolated value of `aws_route53_record.mx.name`            |
-| `autodiscover`         | interpolated value of `aws_route53_record.autodiscover.name`  |
-| `dkim`                 | interpolated value of `aws_ses_domain_dkim.dkim.dkim_tokens`  |
-| `zone_apex_txt_record` | interpolated value of `aws_route53_record.zone-apex-txt.name` |
-| `dmarc`                | interpolated value of `aws_route53_record.dmarc.name`         |
-| `mx_record`            | interpolated value of `local.mx_record`                       |
-| `autodiscover_record`  | interpolated value of `local.autodiscover_record`             |
-| `zone_name`            | interpolated value of `local.zone_name`                       |
+| Name | Description |
+|------|-------------|
+| autodiscover | interpolated value of `aws_route53_record.autodiscover.name` |
+| autodiscover_record | interpolated value of `local.autodiscover_record` |
+| dkim | interpolated value of `aws_ses_domain_dkim.dkim.dkim_tokens` |
+| dmarc | interpolated value of `aws_route53_record.dmarc.name` |
+| mx | interpolated value of `aws_route53_record.mx.name` |
+| mx_record | interpolated value of `local.mx_record` |
+| zone_apex_txt_record | interpolated value of `aws_route53_record.zone-apex-txt.name` |
+| zone_name | interpolated value of `local.zone_name` |
 
 ## Author Information
 
