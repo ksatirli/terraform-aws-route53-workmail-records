@@ -42,7 +42,7 @@ resource "aws_route53_record" "dkim" {
   records = ["${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}.dkim.amazonses.com."]
 }
 
-resource "aws_route53_record" "zone-apex-txt" {
+resource "aws_route53_record" "zone_apex_txt" {
   zone_id = var.zone_id
   name    = local.zone_name
   type    = "TXT"
