@@ -31,7 +31,7 @@ module "workmail_records" {
   source           = "operatehappy/route53-workmail-records/aws"
   version          = "1.0.0"
   zone_id          = "Z3P5QSUBK4POTI"
-  workmail_zone    = "us-west-1"
+  workmail_zone    = "us-west-2"
 }
 ```
 
