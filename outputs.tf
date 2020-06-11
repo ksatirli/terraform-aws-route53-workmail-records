@@ -14,8 +14,8 @@ output "dkim" {
 }
 
 output "zone_apex_txt_record" {
-  value       = aws_route53_record.zone-apex-txt.name
-  description = "interpolated value of `aws_route53_record.zone-apex-txt.name`"
+  value       = aws_route53_record.zone_apex_txt.name
+  description = "interpolated value of `aws_route53_record.zone_apex_txt.name`"
 }
 
 output "dmarc" {
