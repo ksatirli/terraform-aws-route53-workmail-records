@@ -1,4 +1,4 @@
-## 1.0.0 (2020-06-11)
+# 1.0.0 (2020-06-11)
 
 * bumps version ([c2b1c1b](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/c2b1c1b))
 * EOF fixes ([429bf53](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/429bf53))
