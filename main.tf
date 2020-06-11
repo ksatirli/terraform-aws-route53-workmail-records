@@ -20,7 +20,7 @@ resource "aws_ses_domain_identity" "identity" {
   domain = local.zone_name
 }
 
-resource "aws_route53_record" "verification-token" {
+resource "aws_route53_record" "verification_token" {
   zone_id = var.zone_id
   name    = "_amazonses.${local.zone_name}"
   type    = "TXT"
