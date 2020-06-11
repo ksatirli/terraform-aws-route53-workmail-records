@@ -1,3 +1,14 @@
+## 1.0.0 (2020-06-11)
+
+* bumps version ([c2b1c1b](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/c2b1c1b))
+* EOF fixes ([429bf53](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/429bf53))
+* fixes typos ([df119b4](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/df119b4))
+* replace dashes in resource name with underscores ([1b6c78d](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/1b6c78d))
+* updates incorrect zone ([b8eec5f](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/b8eec5f))
+* updates resource name to best practice format ([de03623](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/de03623))
+* updates resource name to best practice format ([7ca9b8f](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/7ca9b8f))
+* updates variable reference ([578f1ca](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/578f1ca))
+
 # 0.10.0 (2020-02-24)
 
 * adds GitHub Actions (#9) ([e1bfd94](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/e1bfd94)), closes [#9](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/9)
