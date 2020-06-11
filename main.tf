@@ -20,7 +20,7 @@ resource "aws_ses_domain_identity" "identity" {
   domain = local.zone_name
 }
 
-resource "aws_route53_record" "verification-token" {
+resource "aws_route53_record" "verification_token" {
   zone_id = var.zone_id
   name    = "_amazonses.${local.zone_name}"
   type    = "TXT"
@@ -42,7 +42,7 @@ resource "aws_route53_record" "dkim" {
   records = ["${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}.dkim.amazonses.com."]
 }
 
-resource "aws_route53_record" "zone-apex-txt" {
+resource "aws_route53_record" "zone_apex_txt" {
   zone_id = var.zone_id
   name    = local.zone_name
   type    = "TXT"

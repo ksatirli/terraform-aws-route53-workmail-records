@@ -27,11 +27,11 @@ This module depends on a correctly configured [AWS Provider](https://www.terrafo
 Add the module to your Terraform resources like so:
 
 ```hcl
-module "workmail-records" {
+module "workmail_records" {
   source           = "operatehappy/route53-workmail-records/aws"
-  version          = "0.10.0"
+  version          = "1.0.0"
   zone_id          = "Z3P5QSUBK4POTI"
-  workmail_zone    = "us-west-1"
+  workmail_zone    = "us-west-2"
 }
 ```
 
@@ -64,7 +64,7 @@ Then, fetch the module from the [Terraform Registry](https://registry.terraform.
 
 ## Author Information
 
-This module is maintained by the contributors listed on [GitHub](https://github.com/operatehappy/terraform-aws-route53-workmail-records/graphs/contributors)
+This module is maintained by the contributors listed on [GitHub](https://github.com/operatehappy/terraform-aws-route53-workmail-records/graphs/contributors).
 
 Development of this module was sponsored by [Operate Happy](https://github.com/operatehappy).
 
@@ -72,7 +72,7 @@ Development of this module was sponsored by [Operate Happy](https://github.com/o
 
 Licensed under the Apache License, Version 2.0 (the "License").
 
-You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an _"AS IS"_ basis, without WARRANTIES or conditions of any kind, either express or implied.
 
