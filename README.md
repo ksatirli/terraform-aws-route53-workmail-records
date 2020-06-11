@@ -27,7 +27,7 @@ This module depends on a correctly configured [AWS Provider](https://www.terrafo
 Add the module to your Terraform resources like so:
 
 ```hcl
-module "workmail-records" {
+module "workmail_records" {
   source           = "operatehappy/route53-workmail-records/aws"
   version          = "0.10.0"
   zone_id          = "Z3P5QSUBK4POTI"
