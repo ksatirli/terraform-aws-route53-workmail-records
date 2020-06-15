@@ -47,7 +47,7 @@ resource "aws_route53_record" "zone_apex_txt" {
   name    = local.zone_name
   type    = "TXT"
   ttl     = var.record_ttl
-  records = [local.zone_apex_txt_record]
+  records = local.zone_apex_txt_record
 }
 
 // DMARC record
