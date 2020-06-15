@@ -42,7 +42,7 @@ Then, fetch the module from the [Terraform Registry](https://registry.terraform.
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
 | zone_id | ID of the DNS Zone to store Records in | `string` | n/a |
-| apex_txt_record_append | additional Domain Apex TXT Record data | `string` | `""` |
+| apex_txt_record_append | additional Domain Apex TXT Record data | `list(string)` | `[]` |
 | dmarc_record | DMARC TXT Record | `string` | `"v=DMARC1;p=quarantine;pct=100;fo=1;"` |
 | mx_priority | MX Priority | `string` | `10` |
 | record_ttl | TTL for all DNS records | `string` | `86400` |

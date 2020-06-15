@@ -28,9 +28,9 @@ variable "spf_record" {
 }
 
 variable "apex_txt_record_append" {
-  type        = string
+  type        = list(string)
   description = "additional Domain Apex TXT Record data"
-  default     = ""
+  default     = []
 }
 
 variable "dmarc_record" {
