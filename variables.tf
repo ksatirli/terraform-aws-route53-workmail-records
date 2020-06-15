@@ -22,15 +22,15 @@ variable "mx_priority" {
 }
 
 variable "spf_record" {
-  type        = string
+  type        = list(string)
   description = "SPF TXT Record"
-  default     = "v=spf1 include:amazonses.com ~all;"
+  default     = ["v=spf1 include:amazonses.com ~all;"]
 }
 
 variable "apex_txt_record_append" {
-  type        = string
+  type        = list(string)
   description = "additional Domain Apex TXT Record data"
-  default     = ""
+  default     = []
 }
 
 variable "dmarc_record" {
@@ -46,6 +46,6 @@ data "aws_route53_zone" "zone" {
 locals {
   mx_record            = "${var.mx_priority} inbound-smtp.${var.workmail_zone}.amazonaws.com."
   autodiscover_record  = "autodiscover.mail.${var.workmail_zone}.awsapps.com."
-  zone_apex_txt_record = "\"${var.spf_record}\" ${var.apex_txt_record_append}"
+  zone_apex_txt_record = concat(var.spf_record, var.apex_txt_record_append)
   zone_name            = data.aws_route53_zone.zone.name // NOTE: trailing period is added by data source
 }

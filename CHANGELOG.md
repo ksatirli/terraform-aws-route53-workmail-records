@@ -1,4 +1,4 @@
-# 1.0.1 (2020-06-15)
+# 1.0.2 (2020-06-15)
 
 * Fixes apex TXT record appendix ([5a7ed12](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/5a7ed12))
 * updates resource name identifier (#11) ([d2997c8](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/d2997c8)), closes [#11](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/11)
