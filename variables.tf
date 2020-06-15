@@ -22,9 +22,9 @@ variable "mx_priority" {
 }
 
 variable "spf_record" {
-  type        = string
+  type        = list(string)
   description = "SPF TXT Record"
-  default     = "v=spf1 include:amazonses.com ~all;"
+  default     = ["v=spf1 include:amazonses.com ~all;"]
 }
 
 variable "apex_txt_record_append" {
