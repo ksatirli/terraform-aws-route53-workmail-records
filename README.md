@@ -61,6 +61,8 @@ Then, fetch the module from the [Terraform Registry](https://registry.terraform.
 | mx_record | interpolated value of `local.mx_record` |
 | zone_apex_txt_record | interpolated value of `aws_route53_record.zone-apex-txt.name` |
 | zone_name | interpolated value of `local.zone_name` |
+| domain_identity_arn | interpolated value of `aws_ses_domain_identity.identity.arn` |
+| domain_identity_verification_token | interpolated value of `aws_ses_domain_identity.identity.verification_token` |
 
 ## Author Information
 

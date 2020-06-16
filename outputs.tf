@@ -37,3 +37,13 @@ output "zone_name" {
   value       = local.zone_name
   description = "interpolated value of `local.zone_name`"
 }
+
+output "domain_identity_arn" {
+  value       = aws_ses_domain_identity.identity.arn
+  description = "interpolated value of `aws_ses_domain_identity.identity.arn`"
+}
+
+output "domain_identity_verification_token" {
+  value       = aws_ses_domain_identity.identity.verification_token
+  description = "interpolated value of `aws_ses_domain_identity.identity.verification_token`"
+}

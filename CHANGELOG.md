@@ -3,7 +3,7 @@
 * Use `concat` for appended records (#13) ([e0d4587](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/e0d4587)), closes [#13](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/13)
 * updates resource name identifier (#11) ([d2997c8](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/d2997c8)), closes [#11](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/11)
 
-# 1.0.0 (2020-06-11)
+## 1.0.0 (2020-06-11)
 
 * bumps version ([c2b1c1b](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/c2b1c1b))
 * EOF fixes ([429bf53](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/429bf53))
