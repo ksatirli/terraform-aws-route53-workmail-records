@@ -25,7 +25,7 @@ resource "aws_route53_record" "verification_token" {
   name    = "_amazonses.${local.zone_name}"
   type    = "TXT"
   ttl     = "600"
-  records = ["${aws_ses_domain_identity.identity.verification_token}"]
+  records = [aws_ses_domain_identity.identity.verification_token]
 }
 
 // DKIM
