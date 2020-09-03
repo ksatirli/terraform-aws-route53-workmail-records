@@ -16,7 +16,7 @@
 
 ## Requirements
 
-This module requires Terraform version `0.12.0` or newer.
+This module requires Terraform version `0.13.0` or newer.
 
 ## Dependencies
 
@@ -29,7 +29,7 @@ Add the module to your Terraform resources like so:
 ```hcl
 module "workmail_records" {
   source           = "operatehappy/route53-workmail-records/aws"
-  version          = "1.0.3"
+  version          = "1.1.0"
   zone_id          = "Z3P5QSUBK4POTI"
   workmail_zone    = "us-west-2"
 }

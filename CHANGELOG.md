@@ -2,7 +2,7 @@
 
 * Adds outputs for domain identity (#14) ([20ca22f](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/20ca22f)), closes [#14](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/14)
 
-# 1.0.2 (2020-06-15)
+## 1.0.2 (2020-06-15)
 
 * Use `concat` for appended records (#13) ([e0d4587](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/e0d4587)), closes [#13](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/13)
 * updates resource name identifier (#11) ([d2997c8](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/d2997c8)), closes [#11](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/11)
