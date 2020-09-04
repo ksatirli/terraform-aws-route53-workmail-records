@@ -1,4 +1,8 @@
-# 1.0.3 (2020-06-16)
+# 1.1.0 (2020-09-04)
+
+* Updates Versions (#15) ([73ef49c](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/73ef49c)), closes [#15](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/15)
+
+## 1.0.3 (2020-06-16)
 
 * Adds outputs for domain identity (#14) ([20ca22f](https://github.com/operatehappy/terraform-aws-route53-workmail-records/commit/20ca22f)), closes [#14](https://github.com/operatehappy/terraform-aws-route53-workmail-records/issues/14)
 
