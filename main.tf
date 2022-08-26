@@ -29,7 +29,7 @@ resource "aws_route53_record" "verification_token" {
   name    = "_amazonses.${local.zone_name}"
   type    = "TXT"
   ttl     = "600"
-  records = [aws_ses_domain_identity.identity.verification_token]
+  records = [aws_ses_domain_identity.main.verification_token]
 }
 
 # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ses_domain_dkim
@@ -41,10 +41,10 @@ resource "aws_ses_domain_dkim" "main" {
 resource "aws_route53_record" "dkim" {
   count   = 3
   zone_id = var.zone_id
-  name    = "${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}._domainkey.${local.zone_name}"
+  name    = "${element(aws_ses_domain_dkim.main.dkim_tokens, count.index)}._domainkey.${local.zone_name}"
   type    = "CNAME"
   ttl     = "600"
-  records = ["${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}.dkim.amazonses.com."]
+  records = ["${element(aws_ses_domain_dkim.main.dkim_tokens, count.index)}.dkim.amazonses.com."]
 }
 
 # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record

@@ -7,5 +7,5 @@ moved {
 
 moved {
   from = aws_ses_domain_dkim.dkim
-  to   = aws_ses_domain_identity.main
+  to   = aws_ses_domain_dkim.main
 }
