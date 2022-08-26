@@ -6,8 +6,8 @@ resource "aws_route53_zone" "example" {
 }
 
 module "workmail_records" {
-  source           = "../../"
+  source = "../../"
 
-  zone_id          = aws_route53_zone.example.id
-  workmail_zone    = "us-west-2"
+  zone_id       = aws_route53_zone.example.id
+  workmail_zone = "us-west-2"
 }
