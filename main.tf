@@ -1,3 +1,4 @@
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "mx" {
   zone_id = var.zone_id
   name    = local.zone_name
@@ -6,7 +7,8 @@ resource "aws_route53_record" "mx" {
   records = [local.mx_record]
 }
 
-// enable Autodiscover service for Outlook and other clients
+# enable autodiscovery service for Outlook and other clients
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "autodiscover" {
   zone_id = var.zone_id
   name    = "autodiscover.${local.zone_name}"
@@ -15,11 +17,13 @@ resource "aws_route53_record" "autodiscover" {
   records = [local.autodiscover_record]
 }
 
-// SES identity / verification
-resource "aws_ses_domain_identity" "identity" {
+
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ses_domain_identity
+resource "aws_ses_domain_identity" "main" {
   domain = local.zone_name
 }
 
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "verification_token" {
   zone_id = var.zone_id
   name    = "_amazonses.${local.zone_name}"
@@ -28,11 +32,12 @@ resource "aws_route53_record" "verification_token" {
   records = [aws_ses_domain_identity.identity.verification_token]
 }
 
-// DKIM
-resource "aws_ses_domain_dkim" "dkim" {
-  domain = aws_ses_domain_identity.identity.domain
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ses_domain_dkim
+resource "aws_ses_domain_dkim" "main" {
+  domain = aws_ses_domain_identity.main.domain
 }
 
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "dkim" {
   count   = 3
   zone_id = var.zone_id
@@ -42,6 +47,7 @@ resource "aws_route53_record" "dkim" {
   records = ["${element(aws_ses_domain_dkim.dkim.dkim_tokens, count.index)}.dkim.amazonses.com."]
 }
 
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "zone_apex_txt" {
   zone_id = var.zone_id
   name    = local.zone_name
@@ -50,7 +56,7 @@ resource "aws_route53_record" "zone_apex_txt" {
   records = local.zone_apex_txt_record
 }
 
-// DMARC record
+# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "dmarc" {
   zone_id = var.zone_id
   name    = "_dmarc.${local.zone_name}"
