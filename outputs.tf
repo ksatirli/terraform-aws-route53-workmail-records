@@ -1,49 +1,39 @@
-output "mx" {
-  value       = aws_route53_record.mx.name
-  description = "interpolated value of `aws_route53_record.mx.name`"
+output "aws_route53_record_mx" {
+  description = "Exported Attributes for `aws_route53_record.mx`."
+  value       = aws_route53_record.mx
 }
 
-output "autodiscover" {
-  value       = aws_route53_record.autodiscover.name
-  description = "interpolated value of `aws_route53_record.autodiscover.name`"
+output "aws_route53_record_autodiscover" {
+  description = "Exported Attributes for `aws_route53_record.autodiscover`."
+  value       = aws_route53_record.autodiscover
 }
 
-output "dkim" {
-  value       = aws_ses_domain_dkim.dkim.dkim_tokens
-  description = "interpolated value of `aws_ses_domain_dkim.dkim.dkim_tokens`"
+output "aws_ses_domain_identity_main" {
+  description = "Exported Attributes for `aws_ses_domain_identity.main`."
+  value       = aws_ses_domain_identity.main
 }
 
-output "zone_apex_txt_record" {
-  value       = aws_route53_record.zone_apex_txt.name
-  description = "interpolated value of `aws_route53_record.zone_apex_txt.name`"
+output "aws_route53_record_verification_token" {
+  description = "Exported Attributes for `aws_route53_record.verification_token`."
+  value       = aws_route53_record.verification_token
 }
 
-output "dmarc" {
-  value       = aws_route53_record.dmarc.name
-  description = "interpolated value of `aws_route53_record.dmarc.name`"
+output "aws_ses_domain_dkim_main" {
+  description = "Exported Attributes for `aws_ses_domain_dkim.main`."
+  value       = aws_ses_domain_dkim.main
 }
 
-output "mx_record" {
-  value       = local.mx_record
-  description = "interpolated value of `local.mx_record`"
+output "aws_route53_record_dkim" {
+  description = "Exported Attributes for `aws_route53_record.dkim`."
+  value       = aws_route53_record.dkim
 }
 
-output "autodiscover_record" {
-  value       = local.autodiscover_record
-  description = "interpolated value of `local.autodiscover_record`"
+output "aws_route53_record_zone_apex_txt" {
+  description = "Exported Attributes for `aws_route53_record.zone_apex_txt`."
+  value       = aws_route53_record.zone_apex_txt
 }
 
-output "zone_name" {
-  value       = local.zone_name
-  description = "interpolated value of `local.zone_name`"
-}
-
-output "domain_identity_arn" {
-  value       = aws_ses_domain_identity.identity.arn
-  description = "interpolated value of `aws_ses_domain_identity.identity.arn`"
-}
-
-output "domain_identity_verification_token" {
-  value       = aws_ses_domain_identity.identity.verification_token
-  description = "interpolated value of `aws_ses_domain_identity.identity.verification_token`"
+output "aws_route53_record_dmarc" {
+  description = "Exported Attributes for `aws_route53_record.dmarc`."
+  value       = aws_route53_record.dmarc
 }
