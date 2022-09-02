@@ -4,12 +4,16 @@
 
 ## Table of Contents
 
-- [AWS WorkMail DNS Records](#aws-workmail-dns-records)
-  - [Table of Contents](#table-of-contents)
-  - [Requirements](#requirements)
-  - [Usage](#usage)
-  - [Author Information](#author-information)
-  - [License](#license)
+<!-- TOC -->
+* [AWS WorkMail DNS Records](#aws-workmail-dns-records)
+  * [Table of Contents](#table-of-contents)
+  * [Requirements](#requirements)
+  * [Usage](#usage)
+    * [Inputs](#inputs)
+    * [Outputs](#outputs)
+  * [Author Information](#author-information)
+  * [License](#license)
+<!-- TOC -->
 
 ## Requirements
 
