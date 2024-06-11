@@ -32,6 +32,7 @@ For examples, see the [./examples](https://github.com/ksatirli/terraform-aws-rou
 | zone_id | ID of the DNS Zone to store Records in | `string` | n/a | yes |
 | apex_txt_record_append | additional Domain Apex TXT Record data | `list(string)` | `[]` | no |
 | dmarc_record | DMARC TXT Record | `string` | `"v=DMARC1;p=quarantine;pct=100;fo=1;"` | no |
+| mail_from_subdomain | Subdomain to use as `MAIL FROM` domain. | `string` | `"mail"` | no |
 | mx_priority | MX Priority | `string` | `10` | no |
 | record_ttl | TTL for all DNS records | `string` | `86400` | no |
 | spf_record | SPF TXT Record | `list(string)` | <pre>[<br>  "v=spf1 include:amazonses.com ~all;"<br>]</pre> | no |
