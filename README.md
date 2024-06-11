@@ -18,7 +18,7 @@
 ## Requirements
 
 * Amazon Web Services (AWS) [Account](https://aws.amazon.com/account/)
-* Terraform `1.1.x` or newer.
+* Terraform `1.5.x` or newer.
 
 ## Usage
 
