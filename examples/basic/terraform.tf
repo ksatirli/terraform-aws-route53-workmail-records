@@ -1,9 +1,9 @@
 terraform {
   required_providers {
-    # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone
+    # see https://registry.terraform.io/providers/hashicorp/aws/5.53.0/docs
     aws = {
       source  = "hashicorp/aws"
-      version = "4.28.0"
+      version = "5.53.0"
     }
   }
 }
